@@ -13,3 +13,6 @@ This object is simple POJO containing get/set methods to store data retrieved us
 
 source: 
 https://www.tutorialspoint.com/design_pattern/data_access_object_pattern.htm
+
+
+![image](https://user-images.githubusercontent.com/43962725/139555429-cf4fc62c-7fad-45ab-aebe-557d5ad41b5a.png)
