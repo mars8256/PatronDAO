@@ -21,7 +21,7 @@ public class PatronDAO {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         PersonaDAO dao = new PersonaDAOImpl();
         CarreraDAO cardao = new CarreraDAOImpl();
         
@@ -33,8 +33,7 @@ public class PatronDAO {
         car1.setId(2);
         car1.setNombre("ISIS");
         
-        cardao.registrar(car);
-        cardao.registrar(car1);
+    
         
         Persona per = new Persona();
         per.setId(1);
@@ -47,8 +46,8 @@ public class PatronDAO {
         dao.registrar(per);
         dao.registrar(per1);
         
-        dao.listarTodos().forEach(x -> System.out.println(x.getNombres()));
-        cardao.listarTodos().forEach(x -> System.out.println(x.getNombre()));
+//        dao.listarTodos().forEach(x -> System.out.println(x.getNombres()));
+//        cardao.listarTodos().forEach(x -> System.out.println(x.getNombre()));
         
     }
     

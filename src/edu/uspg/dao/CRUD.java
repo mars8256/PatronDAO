@@ -5,6 +5,7 @@
  */
 package edu.uspg.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -12,9 +13,9 @@ import java.util.List;
  * @author morozco
  */
 public interface CRUD<T> {
-     List<T> listarTodos();
-    T getPorId(int id);
-    void registrar(T t);
-    void actualizar(T t);
-    void eliminar(int id);
+     List<T> listarTodos() throws Exception;
+    T getPorId(int id) throws Exception;
+    void registrar(T t) throws Exception;
+    void actualizar(T t) throws Exception;
+    void eliminar(int id) throws Exception;
 }

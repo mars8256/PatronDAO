@@ -5,8 +5,11 @@
  */
 package edu.uspg.impl;
 
+import edu.uspg.conexion.Conexion;
 import edu.uspg.dao.PersonaDAO;
 import edu.uspg.model.Persona;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +17,7 @@ import java.util.List;
  *
  * @author morozco
  */
-public class PersonaDAOImpl implements PersonaDAO{
+public class PersonaDAOImpl extends Conexion implements PersonaDAO{
  List<Persona> lista = new ArrayList<>();
  
     @Override
@@ -28,8 +31,18 @@ public class PersonaDAOImpl implements PersonaDAO{
     }
 
     @Override
-    public void registrar(Persona persona) {
-        lista.add(persona);
+    public void registrar(Persona persona) throws Exception {
+//        lista.add(persona);
+        try{
+            this.conectar();
+            PreparedStatement st = conexion.prepareStatement("insert into alumno(nombre) values(?)");
+            st.setString(1,persona.getNombres());
+            st.executeUpdate();
+        }catch(Exception e){
+            throw e;
+        }finally{
+            this.cerrar();
+        }
     }
 
     @Override
